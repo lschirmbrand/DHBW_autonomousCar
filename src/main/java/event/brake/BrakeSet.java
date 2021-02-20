@@ -10,4 +10,9 @@ public class BrakeSet {
     public String toString(){
         return "Brake was set to: " + this.value + "%.";
     }
+
+    public float getValue(){
+        return this.value;
+    }
+
 }
