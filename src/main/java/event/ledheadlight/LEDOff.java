@@ -1,13 +1,13 @@
 package event.ledheadlight;
 
 public class LEDOff {
-    private boolean isOff;
+    private final boolean isOff;
 
-    public LEDOff(){
+    public LEDOff() {
         this.isOff = true;
     }
 
-    public String toString(){
+    public String toString() {
         return "LED Headlight was turned: Off";
     }
 }

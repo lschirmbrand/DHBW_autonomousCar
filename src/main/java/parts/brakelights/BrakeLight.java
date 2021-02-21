@@ -10,12 +10,12 @@ public class BrakeLight implements IBrakeLight {
 
 
     @Subscribe
-    public void receive(BrakeLightOn brakeLightOn){
+    public void receive(BrakeLightOn brakeLightOn) {
         brakeLightOn();
     }
 
     @Subscribe
-    public void receive(BrakeLightOff brakeLightOff){
+    public void receive(BrakeLightOff brakeLightOff) {
         brakeLightOff();
     }
 

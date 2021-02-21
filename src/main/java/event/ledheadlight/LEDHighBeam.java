@@ -2,7 +2,7 @@ package event.ledheadlight;
 
 public class LEDHighBeam {
 
-    private boolean isHighBeam;
+    private final boolean isHighBeam;
 
     public LEDHighBeam() {
         this.isHighBeam = true;

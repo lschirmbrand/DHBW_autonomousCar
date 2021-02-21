@@ -2,15 +2,15 @@ package event.electricengine;
 
 public class DecreaseRPM {
 
-    private int deltaRPM;
-    private int seconds;
+    private final int deltaRPM;
+    private final int seconds;
 
-    public DecreaseRPM(int deltaRPM, int seconds){
+    public DecreaseRPM(int deltaRPM, int seconds) {
         this.deltaRPM = deltaRPM;
         this.seconds = seconds;
     }
 
-    public String toString(){
+    public String toString() {
         return "Engine RPM was decreased for " + this.deltaRPM + " RPMs for " + this.seconds + " seconds.";
     }
 

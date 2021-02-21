@@ -2,7 +2,7 @@ package event.electricengine;
 
 public class EngineOn {
 
-    private boolean isOn;
+    private final boolean isOn;
 
     public EngineOn() {
         this.isOn = true;

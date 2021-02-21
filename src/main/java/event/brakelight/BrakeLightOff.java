@@ -2,9 +2,9 @@ package event.brakelight;
 
 public class BrakeLightOff {
 
-    private boolean isOff;
+    private final boolean isOff;
 
-    public BrakeLightOff(){
+    public BrakeLightOff() {
         this.isOff = true;
     }
 

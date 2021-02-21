@@ -2,9 +2,9 @@ package event.camera;
 
 public class CameraOff {
 
-    private boolean isOff;
+    private final boolean isOff;
 
-    public CameraOff(){
+    public CameraOff() {
         this.isOff = true;
     }
 

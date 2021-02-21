@@ -2,9 +2,9 @@ package event.indicator;
 
 public class RightIndicatorOff {
 
-    private boolean isOff;
+    private final boolean isOff;
 
-    public RightIndicatorOff(){
+    public RightIndicatorOff() {
         this.isOff = true;
     }
 

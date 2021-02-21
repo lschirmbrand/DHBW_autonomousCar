@@ -2,13 +2,13 @@ package parts.battery;
 
 public class BatteryCell {
 
-    private int numberMainCells = 32;
+    private final int numberMainCells = 32;
     private final int numberSubCells = 8;
     private final int numberSingleCells = 2;
 
-    private BatteryCell[] batteryCells = new BatteryCell[numberMainCells];
-    private BatteryCell[] maincells = new BatteryCell[numberSubCells];
-    private BatteryCell[] subcells = new BatteryCell[numberSingleCells];
+    private final BatteryCell[] batteryCells = new BatteryCell[numberMainCells];
+    private final BatteryCell[] maincells = new BatteryCell[numberSubCells];
+    private final BatteryCell[] subcells = new BatteryCell[numberSingleCells];
 
     private final byte charged = 1;
     private final byte discharged = 0;

@@ -1,4 +1,4 @@
-package parts;
+package parts.gps;
 
 public class GPS {
 }

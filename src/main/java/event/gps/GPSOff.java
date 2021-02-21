@@ -2,13 +2,13 @@ package event.gps;
 
 public class GPSOff {
 
-    private boolean isOff;
+    private final boolean isOff;
 
-    public GPSOff(){
+    public GPSOff() {
         this.isOff = true;
     }
 
-    public String toString(){
+    public String toString() {
         return "GPS was turned: Off";
     }
 }

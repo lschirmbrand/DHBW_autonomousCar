@@ -8,11 +8,11 @@ import java.net.URLClassLoader;
 
 public class CameraFactory {
 
-    private static Object build(){
+    private static Object build() {
 
         Object cameraPort = null;
 
-        try{
+        try {
             URL[] urls = {new File(Configuration.instance.pathToCameraJavaArchive).toURI().toURL()};
             URLClassLoader urlClassLoader = new URLClassLoader(urls, CameraFactory.class.getClassLoader());
             Class cameraClass = Class.forName("Camera", true, urlClassLoader);
@@ -21,7 +21,7 @@ public class CameraFactory {
 
             cameraPort = cameraClass.getDeclaredField("port").get(cameraInstance);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

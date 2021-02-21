@@ -1,13 +1,13 @@
 package event.ledheadlight;
 
 public class LEDDimmed {
-    private boolean isDimmed;
+    private final boolean isDimmed;
 
-    public LEDDimmed(){
+    public LEDDimmed() {
         this.isDimmed = true;
     }
 
-    public String toString(){
+    public String toString() {
         return "LED Headlight was: Dimmed.";
     }
 }

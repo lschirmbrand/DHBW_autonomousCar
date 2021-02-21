@@ -4,7 +4,7 @@ public class CameraOn {
 
     private boolean isOn;
 
-    public CameraOn(){
+    public CameraOn() {
 
     }
 }

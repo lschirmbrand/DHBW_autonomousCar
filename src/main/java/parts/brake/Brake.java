@@ -2,12 +2,12 @@ package parts.brake;
 
 import com.google.common.eventbus.Subscribe;
 import event.Subscriber;
-import event.brake.*;
+import event.brake.BrakeSet;
 
-public class Brake extends Subscriber implements IBrake{
+public class Brake extends Subscriber implements IBrake {
 
     @Subscribe
-    public void receive(BrakeSet brakeSet){
+    public void receive(BrakeSet brakeSet) {
         brakeSet(brakeSet);
     }
 

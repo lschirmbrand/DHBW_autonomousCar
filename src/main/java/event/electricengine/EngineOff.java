@@ -1,17 +1,17 @@
 package event.electricengine;
 
 public class EngineOff {
-    private boolean isOff;
+    private final boolean isOff;
 
-    public EngineOff(){
+    public EngineOff() {
         this.isOff = true;
     }
 
-    public boolean getIsOn(){
+    public boolean getIsOn() {
         return this.isOff;
     }
 
-    public String toString(){
+    public String toString() {
         return "Engine was turned: Off";
     }
 

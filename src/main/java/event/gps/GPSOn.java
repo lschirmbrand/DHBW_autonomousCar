@@ -2,9 +2,9 @@ package event.gps;
 
 public class GPSOn {
 
-    private boolean isOn;
+    private final boolean isOn;
 
-    public GPSOn(){
+    public GPSOn() {
         this.isOn = true;
     }
 

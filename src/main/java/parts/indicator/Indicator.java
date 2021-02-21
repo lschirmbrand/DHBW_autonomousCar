@@ -1,4 +1,4 @@
-package parts;
+package parts.indicator;
 
 public class Indicator {
 }
