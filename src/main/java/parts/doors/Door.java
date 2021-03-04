@@ -1,6 +1,8 @@
 package parts.doors;
 
-public class Door {
+import parts.Subscriber;
+
+public class Door extends Subscriber {
 
     private doorTypeE doorSide;
 
@@ -13,19 +15,27 @@ public class Door {
     }
 
     public void openLeft() {
-        System.out.println("Left door was: Opened");
+        if (doorSide == doorTypeE.LEFT) {
+            System.out.println("Left door was: Opened");
+        }
     }
 
     public void openRight() {
-        System.out.println("Right door was: Opened");
+        if (doorSide == doorTypeE.RIGHT) {
+            System.out.println("Right door was: Opened");
+        }
     }
 
     public void closeRight() {
-        System.out.println("Right door was: Closed");
+        if (doorSide == doorTypeE.RIGHT) {
+            System.out.println("Right door was: Closed");
+        }
     }
 
     public void closeLeft() {
-        System.out.println("Left door was: Closed");
+        if (doorSide == doorTypeE.LEFT) {
+            System.out.println("Left door was: Closed");
+        }
     }
 
     public enum doorTypeE {

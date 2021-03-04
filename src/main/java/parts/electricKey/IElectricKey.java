@@ -1,6 +1,6 @@
 package parts.electricKey;
 
-import facade.ControlUnit;
+import core.ControlUnit;
 
 public interface IElectricKey {
     void pairKeyWithCar(ControlUnit controlUnit);

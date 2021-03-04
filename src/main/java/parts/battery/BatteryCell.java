@@ -49,11 +49,11 @@ public class BatteryCell {
     }
 
     public byte getCharged() {
-        return charged;
+        return chargingState;
     }
 
     public void setDischarged() {
-        this.chargingState = 0;
+        this.chargingState = discharged;
     }
 
 }

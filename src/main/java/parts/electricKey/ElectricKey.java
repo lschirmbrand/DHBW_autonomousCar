@@ -1,9 +1,7 @@
 package parts.electricKey;
 
-import command.ActivateCarCommand;
-import command.DeactivateCarCommand;
-import encoding.AES256;
-import facade.ControlUnit;
+import core.ControlUnit;
+import parts.electricKey.encoding.AES256;
 
 public class ElectricKey implements IElectricKey {
 

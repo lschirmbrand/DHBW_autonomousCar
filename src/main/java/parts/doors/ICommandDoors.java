@@ -1,6 +1,6 @@
 package parts.doors;
 
-import car.AmazonZoox;
+import core.car.AmazonZoox;
 
 public interface ICommandDoors {
     void execute(AmazonZoox amazonZoox);

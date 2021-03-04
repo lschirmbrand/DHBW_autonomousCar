@@ -1,6 +1,6 @@
 package parts.sensors.sonicSensors;
 
-import obstacle.Obstacle;
+import parts.Obstacle;
 
 import java.util.ArrayList;
 

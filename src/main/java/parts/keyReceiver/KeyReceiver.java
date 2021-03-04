@@ -1,6 +1,6 @@
 package parts.keyReceiver;
 
-import encoding.AES256;
+import parts.electricKey.encoding.AES256;
 
 public class KeyReceiver implements IKeyReceiver {
 

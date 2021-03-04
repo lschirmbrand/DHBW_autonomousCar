@@ -1,6 +1,6 @@
 package configuration;
 
-import parts.electricEngine.ElectricEngine;
+import parts.electricEngine.EngineTypeE;
 
 public enum Configuration {
     instance;
@@ -26,7 +26,7 @@ public enum Configuration {
 
     //Electric Engine
     public int numberOfElectricEngines = 1;
-    public ElectricEngine.EngineTypeE engineType = ElectricEngine.EngineTypeE.ENGINE_NG;
+    public EngineTypeE engineType = EngineTypeE.ENGINE_NG;
 
     //LedHeadlights
     public int numberOfLedHeadlights = 4;

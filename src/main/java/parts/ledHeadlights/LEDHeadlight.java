@@ -1,12 +1,13 @@
 package parts.ledHeadlights;
 
 import com.google.common.eventbus.Subscribe;
-import event.ledheadlight.LEDDimmed;
-import event.ledheadlight.LEDHighBeam;
-import event.ledheadlight.LEDOff;
-import event.ledheadlight.LEDOn;
+import parts.Subscriber;
+import parts.ledHeadlights.events.LEDDimmed;
+import parts.ledHeadlights.events.LEDHighBeam;
+import parts.ledHeadlights.events.LEDOff;
+import parts.ledHeadlights.events.LEDOn;
 
-public class LEDHeadlight implements ILEDHeadlights {
+public class LEDHeadlight extends Subscriber implements ILEDHeadlights {
 
     @Subscribe
     public void receive(LEDOn lEDOn) {

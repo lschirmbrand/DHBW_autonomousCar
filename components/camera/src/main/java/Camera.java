@@ -11,6 +11,13 @@ public class Camera {
     private CameraVariantE cameraVariant;
     private boolean isOn = false;
 
+    private Camera(){
+        this.port = new Port();
+    }
+
+    public static Camera getInstance(){
+        return instance;
+    }
 
     public String innerCameraOn() {
         if(isOn){

@@ -1,10 +1,11 @@
 package parts.brakelights;
 
 import com.google.common.eventbus.Subscribe;
-import event.brakelight.BrakeLightOff;
-import event.brakelight.BrakeLightOn;
+import parts.Subscriber;
+import parts.brakelights.event.BrakeLightOff;
+import parts.brakelights.event.BrakeLightOn;
 
-public class BrakeLight implements IBrakeLight {
+public class BrakeLight extends Subscriber implements IBrakeLight {
 
     private boolean isOn = false;
 

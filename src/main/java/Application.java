@@ -1,16 +1,14 @@
-import car.AmazonZoox;
 import com.google.common.eventbus.EventBus;
-import facade.ControlUnit;
+import core.ControlUnit;
+import core.car.AmazonZoox;
 import parts.battery.BatteryPack;
+import parts.doors.state.*;
 import parts.electricKey.ElectricKey;
 import parts.sensors.doorSensors.DoorButton;
 import parts.sensors.sonicSensors.ObstacleWarningDisplay;
 import parts.sensors.sonicSensors.SonicSensor;
 import parts.sensors.temperatureSensors.SensorTemperatureBattery;
 import parts.sensors.temperatureSensors.TemperatureDisplay;
-import state.DoorRightClose;
-import state.DoorRightOpen;
-import state.DoorState;
 
 
 public class Application {
@@ -32,6 +30,8 @@ public class Application {
         DoorState doorState = new DoorState();
         DoorRightOpen doorRightOpen = new DoorRightOpen();
         DoorRightClose doorRightClose = new DoorRightClose();
+        DoorLeftOpen doorLeftOpen = new DoorLeftOpen();
+        DoorLeftClose doorLeftClose = new DoorLeftClose();
 
 
         //Initialize the Car with the Builder
@@ -46,11 +46,15 @@ public class Application {
                 .wheels()
                 .brakes()
                 .gps()
+                .camera()
+                //.lidar()
                 .build();
 
 
         doorRightOpen.setAmazonZoox(amazonZoox);
         doorRightClose.setAmazonZoox(amazonZoox);
+        doorLeftOpen.setAmazonZoox(amazonZoox);
+        doorLeftClose.setAmazonZoox(amazonZoox);
 
         //ZooxSettings zooxSettings = new ZooxSettings();
 
@@ -69,20 +73,30 @@ public class Application {
         //Check Temperature of Battery
         sensorTemperatureBattery.checkTemperature();
 
-        //Open right Door
+        //Open right Doors
         doorState.setState(doorRightOpen);
         doorState.changeState();
 
-        //Close right Door
+        //Close right Doors
         doorState.setState(doorRightClose);
         doorState.changeState();
+
+        //Open left Doors
+        doorState.setState(doorLeftOpen);
+        doorState.changeState();
+
+        //Close left Doors
+        doorState.setState(doorLeftClose);
+        doorState.changeState();
+
 
         //Perform all movement tasks once
         controlUnit.startup();
         controlUnit.move(3000, 15);
         controlUnit.leftTurn(3000, 15);
         controlUnit.move(3500, 15);
-        controlUnit.rightTurn(3000, 15);
+        controlUnit.rightTurn(3500, 15);
+        controlUnit.move(3000, 15);
         controlUnit.stop();
         controlUnit.emergencyStop();
         controlUnit.shutdown();
