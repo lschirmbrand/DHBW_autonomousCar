@@ -5,7 +5,6 @@ import parts.electricKey.ElectricKey;
 
 import java.util.Arrays;
 
-
 public class Application {
 
 
@@ -14,15 +13,19 @@ public class Application {
             new ZooxSettings();
         }
 
+        //build the car from config
         AmazonZooxChargingAdapter zoox = buildCar();
 
+        //pair the car with a key
         ElectricKey electricKey = new ElectricKey(zoox);
+
+        //unlock car
         electricKey.unlockCar();
 
         //open left door(s) for passenger(s)
         zoox.pressLeftOpenDoorButton();
 
-        // Autonomous drive
+        //autonomous drive
         zoox.startup();
         zoox.move(2000, 10);
         zoox.leftTurn(1000, 5);
@@ -35,8 +38,11 @@ public class Application {
         //open right door(s) for passenger(s)
         zoox.pressRightOpenDoorButton();
 
+        //lock the car
+        electricKey.lockCar();
 
-        // Charge Zoox
+
+        //charge Zoox
         zoox.pluginTwoPoles();
     }
 

@@ -116,8 +116,10 @@ parts/Subscriber.java
  parts.Subscriber
 parts/brake/IBrake.java
  parts.brake.IBrake
-configuration/ZooxSettings.java
- configuration.ZooxSettings
+core/AmazonZoox.java
+ core.AmazonZoox
+ core.AmazonZoox$1
+ core.AmazonZoox$Builder
 parts/ledHeadlights/events/LEDOff.java
  parts.ledHeadlights.events.LEDOff
 parts/electricEngine/event/DecreaseRPM.java
@@ -162,9 +164,7 @@ parts/electricKey/ElectricKey.java
  parts.electricKey.ElectricKey
 core/AmazonZooxChargingAdapter.java
  core.AmazonZooxChargingAdapter
-core/AmazonZoox.java
- core.AmazonZoox
- core.AmazonZoox$1
- core.AmazonZoox$Builder
+configuration/ZooxSettings.java
+ configuration.ZooxSettings
 Application.java
  Application

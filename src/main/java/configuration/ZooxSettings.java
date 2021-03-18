@@ -17,11 +17,11 @@ public class ZooxSettings {
                 true, true, BehaviorWithNaggingPassengers.DO_NOTHING,
                 MusicDuringDrive.ACDC);
 
-        System.out.println("\nYou are now in the Configuration menu. Enter '-config' if you want to see/change seettings. \nIf that's not the case, press Enter to continue.");
+        System.out.println("\nYou are now in the Configuration menu. Enter '-yes' if you want to see/change settings. \nIf that's not the case, enter -no to continue.");
 
         Scanner scanner = new Scanner(System.in);
         String read = scanner.next();
-        if (read.equals("-config")) {
+        if (read.equals("-yes")) {
             do {
                 System.out.println("Menü:\n 1. print \n 2. set parameter \n 3. undo \n 4. exit");
                 int choosen = scanner.nextInt();
