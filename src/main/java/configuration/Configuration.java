@@ -1,6 +1,7 @@
 package configuration;
 
 import parts.electricEngine.EngineTypeE;
+import parts.electricKey.encoding.AES256;
 
 public enum Configuration {
     instance;
@@ -17,7 +18,7 @@ public enum Configuration {
     public String cameraType = "V1";
 
     //Lidar
-    public String pathToLidarJavaArchive = commonPathToJavaArchive + "camera" + fileSeparator + "build" + fileSeparator + "libs" + fileSeparator + "lidar.jar";
+    public String pathToLidarJavaArchive = commonPathToJavaArchive + "lidar" + fileSeparator + "build" + fileSeparator + "libs" + fileSeparator + "lidar.jar";
     public int numberOfLidars = 4;
     public String lidarType = "LIDAR_NG";
 
@@ -51,5 +52,15 @@ public enum Configuration {
 
     //GPS
     public int numberOfGPS = 2;
+
+    //Battery
+    public int numberOfBattery = 8;
+
+    //Ultrasonic Sensors
+    public int numberOfUltrasonicSensors = 8;
+
+    //Keycode
+    public String keyCode = "ZooxSDC73";
+    public String encryptedKeyCode = AES256.encrypt(keyCode);
 
 }

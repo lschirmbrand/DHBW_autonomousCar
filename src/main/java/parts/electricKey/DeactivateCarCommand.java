@@ -1,10 +1,11 @@
 package parts.electricKey;
 
-import core.ControlUnit;
+import parts.keyReceiver.KeyReceiver;
 
 public class DeactivateCarCommand implements ICommand {
+
     @Override
-    public void execute(String keyCode, ControlUnit controlUnit) {
-        ControlUnit.getKeyReceiver().lockCar(keyCode);
+    public void execute(String encryptedKeyCode, KeyReceiver keyReceiver) {
+        keyReceiver.lockCar(encryptedKeyCode);
     }
 }

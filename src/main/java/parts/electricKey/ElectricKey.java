@@ -1,27 +1,35 @@
 package parts.electricKey;
 
+import configuration.Configuration;
+import core.AmazonZoox;
 import core.ControlUnit;
 import parts.electricKey.encoding.AES256;
+import parts.keyReceiver.KeyReceiver;
 
 public class ElectricKey implements IElectricKey {
-
-    private final String keyCode = "ZooxSDC73";
-    private final AES256 aES256 = new AES256();
+    String keyCode;
+    AmazonZoox zoox;
+    KeyReceiver keyReceiver;
     ActivateCarCommand activateCarCommand = new ActivateCarCommand();
     DeactivateCarCommand deactivateCarCommand = new DeactivateCarCommand();
-    private ControlUnit controlUnit;
+    private final ControlUnit controlUnit;
 
-    public void pairKeyWithCar(ControlUnit controlUnit) {
-        this.controlUnit = controlUnit;
+    public ElectricKey(AmazonZoox zoox) {
+        this.controlUnit = zoox.getControlUnit();
+        this.zoox = zoox;
+        this.keyCode = Configuration.instance.keyCode;
+        this.keyReceiver = ControlUnit.getKeyReceiver();
     }
 
+    @Override
     public void lockCar() {
         String encodedKey = AES256.encrypt(keyCode);
-        this.deactivateCarCommand.execute(encodedKey, controlUnit);
+        this.deactivateCarCommand.execute(encodedKey, keyReceiver);
     }
 
+    @Override
     public void unlockCar() {
         String encodedKey = AES256.encrypt(keyCode);
-        this.activateCarCommand.execute(encodedKey, controlUnit);
+        this.activateCarCommand.execute(encodedKey, keyReceiver);
     }
 }

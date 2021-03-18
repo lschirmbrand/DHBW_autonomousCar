@@ -1,59 +1,24 @@
 package parts.battery;
 
-public class BatteryCell {
+public class BatteryCell extends BatteryCellComponent {
+    private int energy;
 
-    private final int numberMainCells = 32;
-    private final int numberSubCells = 8;
-    private final int numberSingleCells = 2;
-
-    private final BatteryCell[] batteryCells = new BatteryCell[numberMainCells];
-    private final BatteryCell[] maincells = new BatteryCell[numberSubCells];
-    private final BatteryCell[] subcells = new BatteryCell[numberSingleCells];
-
-    private final byte charged = 1;
-    private final byte discharged = 0;
-
-    private byte chargingState;
-
-    public void createBattery() {
-        for (int i = 0; i < numberMainCells; i++) {
-            batteryCells[i] = new BatteryCell();
-            batteryCells[i].createMainCell();
-        }
+    public BatteryCell() {
+        energy = 1;
     }
 
-    public void createMainCell() {
-        for (int i = 0; i < numberSubCells; i++) {
-            maincells[i] = new BatteryCell();
-            maincells[i].createSubCell();
-        }
+    @Override
+    public int getEnergy() {
+        return energy;
     }
 
-    private void createSubCell() {
-        for (int i = 0; i < numberSingleCells; i++) {
-            subcells[i] = new BatteryCell();
-            subcells[i].chargingState = charged;
-        }
+    @Override
+    public void charge() {
+        energy = 1;
     }
 
-    public BatteryCell[] getBatteryCells() {
-        return batteryCells;
+    @Override
+    public void discharge() {
+        energy = 0;
     }
-
-    public BatteryCell[] getMaincells() {
-        return maincells;
-    }
-
-    public BatteryCell[] getSubcells() {
-        return subcells;
-    }
-
-    public byte getCharged() {
-        return chargingState;
-    }
-
-    public void setDischarged() {
-        this.chargingState = discharged;
-    }
-
 }

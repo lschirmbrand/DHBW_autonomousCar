@@ -1,7 +1,7 @@
 package parts.electricKey;
 
-import core.ControlUnit;
+import parts.keyReceiver.KeyReceiver;
 
 public interface ICommand {
-    void execute(String keyCode, ControlUnit controlUnit);
+    void execute(String keyCode, KeyReceiver keyReceiver);
 }

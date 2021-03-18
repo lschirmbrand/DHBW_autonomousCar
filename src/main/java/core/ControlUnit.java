@@ -1,21 +1,17 @@
 package core;
 
 import com.google.common.eventbus.EventBus;
-import configuration.Configuration;
-import core.car.AmazonZoox;
-import parts.battery.BatteryCMS;
+import parts.Subscriber;
+import parts.battery.ITemperatureSensorObserver;
 import parts.brake.event.BrakeSet;
 import parts.brakelights.event.BrakeLightOff;
 import parts.brakelights.event.BrakeLightOn;
 import parts.camera.event.CameraOff;
 import parts.camera.event.CameraOn;
-import parts.electricEngine.EngineTypeE;
 import parts.electricEngine.event.DecreaseRPM;
 import parts.electricEngine.event.EngineOff;
 import parts.electricEngine.event.EngineOn;
 import parts.electricEngine.event.IncreaseRPM;
-import parts.electricKey.ActivateCarCommand;
-import parts.electricKey.DeactivateCarCommand;
 import parts.gps.events.GPSConnectSatellite;
 import parts.gps.events.GPSOff;
 import parts.gps.events.GPSOn;
@@ -27,29 +23,24 @@ import parts.ledHeadlights.events.LEDOff;
 import parts.ledHeadlights.events.LEDOn;
 import parts.lidar.events.LidarOff;
 import parts.lidar.events.LidarOn;
+import parts.ultraSonicSensor.IUltrasonicSensorObserver;
 
 @SuppressWarnings({"UnstableApiUsage", "FieldCanBeLocal"})
-public class ControlUnit {
+public class ControlUnit implements ITemperatureSensorObserver, IUltrasonicSensorObserver {
 
     private static final KeyReceiver keyReceiver = new KeyReceiver();
-    private static EventBus eventBus;
-    private static EngineTypeE engineType;
-    private static AmazonZoox amazonZoox;
-    private static ActivateCarCommand activateCarCommand;
-    private static DeactivateCarCommand deactivateCarCommand;
-    private final BatteryCMS batteryCMS = new BatteryCMS();
+    private final EventBus eventBus;
+
+    public ControlUnit() {
+        eventBus = new EventBus("EB-AmazonZoox");
+    }
 
     public static KeyReceiver getKeyReceiver() {
         return keyReceiver;
     }
 
-
-    public void initialize(AmazonZoox amazonZoox) {
-        ControlUnit.amazonZoox = amazonZoox;
-        eventBus = amazonZoox.getEventBus();
-        amazonZoox.buildSubscribers();
-        engineType = Configuration.instance.engineType;
-        batteryCMS.startUpCMS();
+    public void addSubscriber(Subscriber subscriber) {
+        eventBus.register(subscriber);
     }
 
     public boolean checkForLockState() {
@@ -60,19 +51,12 @@ public class ControlUnit {
         if (checkForLockState()) {
             System.out.println("\nCar now performs: Startup.\n");
             eventBus.post(new EngineOn());
-            manageBatteryConsumption();
             eventBus.post(new LEDOn());
-            manageBatteryConsumption();
             eventBus.post(new GPSOn());
-            manageBatteryConsumption();
             eventBus.post(new GPSConnectSatellite("118,75"));
-            manageBatteryConsumption();
             eventBus.post(new CameraOn());
-            manageBatteryConsumption();
             eventBus.post(new LidarOn());
-            manageBatteryConsumption();
             eventBus.post(new LeftIndicatorOn());
-            manageBatteryConsumption();
 
         } else {
             System.out.println("Car has to be unlocked first.");
@@ -146,11 +130,14 @@ public class ControlUnit {
         }
     }
 
-    private void manageBatteryConsumption() {
-        if (engineType == EngineTypeE.ENGINE_NG) {
-            batteryCMS.drain(3);
-        } else {
-            batteryCMS.drain(4);
-        }
+
+    @Override
+    public void temperaturePublished(double temperature) {
+        System.out.println("Temperature: " + temperature);
+    }
+
+    @Override
+    public void distancePublished(double distance) {
+        System.out.println("Distance: " + distance);
     }
 }

@@ -1,9 +1,11 @@
+parts/battery/BatteryCellComponent.java
+ parts.battery.BatteryCellComponent
 parts/gps/GPS.java
  parts.gps.GPS
-configuration/Configuration.java
- configuration.Configuration
 parts/gps/events/GPSOn.java
  parts.gps.events.GPSOn
+configuration/Configuration.java
+ configuration.Configuration
 parts/ledHeadlights/events/LEDOn.java
  parts.ledHeadlights.events.LEDOn
 parts/factoryUtil/FactoryUtils.java
@@ -12,16 +14,18 @@ parts/brake/event/BrakeSet.java
  parts.brake.event.BrakeSet
 parts/indicator/events/LeftIndicatorOn.java
  parts.indicator.events.LeftIndicatorOn
-parts/battery/BatteryCMS.java
- parts.battery.BatteryCMS
-parts/Obstacle.java
- parts.Obstacle
-parts/electricKey/ElectricKey.java
- parts.electricKey.ElectricKey
+parts/door/OpenDoorButton.java
+ parts.door.OpenDoorButton
 parts/indicator/events/RightIndicatorOff.java
  parts.indicator.events.RightIndicatorOff
 parts/camera/CameraSubscriber.java
  parts.camera.CameraSubscriber
+parts/door/DoorType.java
+ parts.door.DoorType
+parts/battery/TemperatureSensor.java
+ parts.battery.TemperatureSensor
+parts/door/Door.java
+ parts.door.Door
 parts/gps/events/GPSOff.java
  parts.gps.events.GPSOff
 parts/brakelights/event/BrakeLightOn.java
@@ -30,28 +34,34 @@ parts/brakelights/IBrakeLight.java
  parts.brakelights.IBrakeLight
 parts/keyReceiver/KeyReceiver.java
  parts.keyReceiver.KeyReceiver
-parts/sensors/sonicSensors/ISonicSensorListener.java
- parts.sensors.sonicSensors.ISonicSensorListener
 parts/electricEngine/IElectricEngine.java
  parts.electricEngine.IElectricEngine
 parts/electricEngine/EngineX.java
  parts.electricEngine.EngineX
-parts/sensors/temperatureSensors/ISensorTemperatureListener.java
- parts.sensors.temperatureSensors.ISensorTemperatureListener
+core/IAutonomousDrive.java
+ core.IAutonomousDrive
 parts/indicator/events/RightIndicatorOn.java
  parts.indicator.events.RightIndicatorOn
-parts/electricEngine/EngineTypeE.java
- parts.electricEngine.EngineTypeE
 parts/uselessParts/Wheel.java
  parts.uselessParts.Wheel
+parts/electricEngine/EngineTypeE.java
+ parts.electricEngine.EngineTypeE
+parts/battery/Battery.java
+ parts.battery.Battery
 parts/electricEngine/Engine.java
  parts.electricEngine.Engine
+parts/battery/BatteryCellComposite.java
+ parts.battery.BatteryCellComposite
+parts/door/IOpenDoorButtonObserver.java
+ parts.door.IOpenDoorButtonObserver
 configuration/InteriorConfiguration.java
  configuration.InteriorConfiguration
 parts/brake/Brake.java
  parts.brake.Brake
-Application.java
- Application
+parts/door/DoorStateClosed.java
+ parts.door.DoorStateClosed
+parts/indicator/events/HazardWarningOn.java
+ parts.indicator.events.HazardWarningOn
 parts/electricEngine/event/EngineOn.java
  parts.electricEngine.event.EngineOn
 parts/electricEngine/event/IncreaseRPM.java
@@ -60,62 +70,48 @@ parts/camera/event/CameraOff.java
  parts.camera.event.CameraOff
 parts/battery/BatteryCell.java
  parts.battery.BatteryCell
-core/car/AmazonZoox.java
- core.car.AmazonZoox
- core.car.AmazonZoox$Builder
-parts/doors/Door.java
- parts.doors.Door
- parts.doors.Door$doorTypeE
 core/ControlUnit.java
  core.ControlUnit
-parts/sensors/temperatureSensors/TemperatureDisplay.java
- parts.sensors.temperatureSensors.TemperatureDisplay
 parts/camera/event/CameraOn.java
  parts.camera.event.CameraOn
-parts/sensors/sonicSensors/ObstacleWarningDisplay.java
- parts.sensors.sonicSensors.ObstacleWarningDisplay
-parts/sensors/doorSensors/IDoorButtonListener.java
- parts.sensors.doorSensors.IDoorButtonListener
+configuration/MusicDuringDrive.java
+ configuration.MusicDuringDrive
+parts/ultraSonicSensor/IUltrasonicSensorObserver.java
+ parts.ultraSonicSensor.IUltrasonicSensorObserver
 parts/ledHeadlights/LEDHeadlight.java
  parts.ledHeadlights.LEDHeadlight
+parts/door/DoorStateOpen.java
+ parts.door.DoorStateOpen
 parts/electricKey/ICommand.java
  parts.electricKey.ICommand
-parts/doors/OpenLeftDoors.java
- parts.doors.OpenLeftDoors
-configuration/InteriorMemento.java
- configuration.InteriorMemento
 parts/keyReceiver/IKeyReceiver.java
  parts.keyReceiver.IKeyReceiver
-parts/Camera.java
- parts.Camera
+configuration/InteriorMemento.java
+ configuration.InteriorMemento
 configuration/BehaviorWithNaggingPassengers.java
  configuration.BehaviorWithNaggingPassengers
-parts/doors/state/DoorLeftOpen.java
- parts.doors.state.DoorLeftOpen
+parts/door/OpenDoorButtonSide.java
+ parts.door.OpenDoorButtonSide
 parts/indicator/IndicatorSide.java
  parts.indicator.IndicatorSide
-parts/doors/CloseRightDoors.java
- parts.doors.CloseRightDoors
 parts/uselessParts/Bench.java
  parts.uselessParts.Bench
 parts/electricKey/ActivateCarCommand.java
  parts.electricKey.ActivateCarCommand
 parts/ledHeadlights/events/LEDHighBeam.java
  parts.ledHeadlights.events.LEDHighBeam
-parts/sensors/doorSensors/DoorButton.java
- parts.sensors.doorSensors.DoorButton
 parts/brakelights/BrakeLight.java
  parts.brakelights.BrakeLight
+parts/ultraSonicSensor/UltrasonicSensor.java
+ parts.ultraSonicSensor.UltrasonicSensor
 parts/electricKey/DeactivateCarCommand.java
  parts.electricKey.DeactivateCarCommand
-parts/doors/CloseLeftDoors.java
- parts.doors.CloseLeftDoors
-parts/sensors/sonicSensors/SonicSensor.java
- parts.sensors.sonicSensors.SonicSensor
 parts/electricEngine/event/EngineOff.java
  parts.electricEngine.event.EngineOff
 parts/lidar/LidarSubscriber.java
  parts.lidar.LidarSubscriber
+parts/battery/ITemperatureSensorObserver.java
+ parts.battery.ITemperatureSensorObserver
 parts/Subscriber.java
  parts.Subscriber
 parts/brake/IBrake.java
@@ -138,14 +134,12 @@ parts/brakelights/event/BrakeLightOff.java
  parts.brakelights.event.BrakeLightOff
 parts/ledHeadlights/events/LEDDimmed.java
  parts.ledHeadlights.events.LEDDimmed
-parts/doors/state/DoorRightOpen.java
- parts.doors.state.DoorRightOpen
+parts/door/IDoorState.java
+ parts.door.IDoorState
 parts/lidar/LidarFactory.java
  parts.lidar.LidarFactory
-parts/doors/state/DoorState.java
- parts.doors.state.DoorState
-parts/battery/BatteryPack.java
- parts.battery.BatteryPack
+core/IChargingStation.java
+ core.IChargingStation
 configuration/MementoCaretaker.java
  configuration.MementoCaretaker
 parts/electricKey/IElectricKey.java
@@ -160,23 +154,17 @@ parts/gps/events/GPSConnectSatellite.java
  parts.gps.events.GPSConnectSatellite
 parts/indicator/events/LeftIndicatorOff.java
  parts.indicator.events.LeftIndicatorOff
-parts/doors/state/DoorRightClose.java
- parts.doors.state.DoorRightClose
-parts/doors/OpenRightDoors.java
- parts.doors.OpenRightDoors
-parts/sensors/temperatureSensors/SensorTemperatureBattery.java
- parts.sensors.temperatureSensors.SensorTemperatureBattery
-parts/doors/state/IDoorState.java
- parts.doors.state.IDoorState
 parts/camera/CameraFactory.java
  parts.camera.CameraFactory
 parts/lidar/events/LidarOn.java
  parts.lidar.events.LidarOn
-configuration/MusicDuringDrive.java
- configuration.MusicDuringDrive
-parts/indicator/events/HazardWarningOn.java
- parts.indicator.events.HazardWarningOn
-parts/doors/ICommandDoors.java
- parts.doors.ICommandDoors
-parts/doors/state/DoorLeftClose.java
- parts.doors.state.DoorLeftClose
+parts/electricKey/ElectricKey.java
+ parts.electricKey.ElectricKey
+core/AmazonZooxChargingAdapter.java
+ core.AmazonZooxChargingAdapter
+core/AmazonZoox.java
+ core.AmazonZoox
+ core.AmazonZoox$1
+ core.AmazonZoox$Builder
+Application.java
+ Application

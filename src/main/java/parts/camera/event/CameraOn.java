@@ -2,7 +2,7 @@ package parts.camera.event;
 
 public class CameraOn {
 
-    private boolean isOff;
+    private final boolean isOff;
 
     public CameraOn() {
         this.isOff = true;

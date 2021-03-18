@@ -2,16 +2,18 @@ package parts.electricEngine;
 
 import com.google.common.eventbus.Subscribe;
 import parts.Subscriber;
-import parts.battery.BatteryCMS;
+import parts.battery.Battery;
 import parts.electricEngine.event.DecreaseRPM;
 import parts.electricEngine.event.EngineOff;
 import parts.electricEngine.event.EngineOn;
 import parts.electricEngine.event.IncreaseRPM;
 
+import java.util.List;
+
 public abstract class Engine extends Subscriber implements IElectricEngine {
     private EngineTypeE engineType;
 
-    public abstract void drainEnergy(BatteryCMS batteryCMS);
+    public abstract void drainEnergy(List<Battery> batteries);
 
     public void setEngineType(EngineTypeE engineType) {
         this.engineType = engineType;

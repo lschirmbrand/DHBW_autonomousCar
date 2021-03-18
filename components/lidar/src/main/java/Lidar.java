@@ -11,6 +11,13 @@ public class Lidar {
     private boolean isOn = false;
     private boolean alreadyChanged = false;
 
+    private Lidar(){
+        port = new Port();
+    }
+
+    public static Lidar getInstance(){
+        return instance;
+    }
 
     public String innerSetLidarVariant(String variant){
         if(!alreadyChanged){

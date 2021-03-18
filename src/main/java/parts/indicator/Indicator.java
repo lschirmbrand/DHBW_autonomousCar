@@ -6,12 +6,15 @@ import parts.indicator.events.*;
 
 @SuppressWarnings({"UnstableApiUsage", "FieldCanBeLocal", "unused"})
 public class Indicator extends Subscriber {
-
     private IndicatorSide indicatorSide;
 
     private boolean leftIndicatorOn = false;
     private boolean rightIndicatorOn = false;
     private boolean hazardWarningOn = false;
+
+    public Indicator(IndicatorSide indicatorSide) {
+        this.indicatorSide = indicatorSide;
+    }
 
     @Subscribe
     public void receive(LeftIndicatorOn leftIndicatorOn) {
@@ -82,7 +85,7 @@ public class Indicator extends Subscriber {
 
     public void hazardWarningOff() {
         this.hazardWarningOn = false;
-        System.out.println("Hazard Warning was turned: On");
+        System.out.println("Hazard Warning was turned: Off");
     }
 
     public void setSide(IndicatorSide indicator) {
